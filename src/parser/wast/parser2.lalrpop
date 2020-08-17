@@ -1,0 +1,20 @@
+use std::str::FromStr;
+use super::lexer;
+
+grammar;
+
+pub Term: () = {
+    "(" ")" => (),
+    "(" <t:Term> ")" => t,
+};
+
+extern {
+    type Location = usize;
+    type Error = lexer::LexerError;
+
+    enum lexer::Token {
+        "(" => lexer::Token::LParen,
+        ")" => lexer::Token::RParen,
+        "module" => lexer::Token::Reserved("module"),
+    }
+}

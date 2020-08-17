@@ -2,7 +2,7 @@
 
 use std::convert::TryFrom;
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Token {
     Id(String),
     String(String),
@@ -24,7 +24,7 @@ pub enum Token {
     },
 }
 
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 pub enum Sign {
     Pos,
     Neg,
